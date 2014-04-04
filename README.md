@@ -1,4 +1,5 @@
-QXPomelo--quick-cocos2d-x的pomelo客户端 
+QXPomelo--<br />
+quick-cocos2d-x的pomelo客户端 
 ===================================  
   pomelo client for quick-cocos2d-x lua client for pomelo
   基于libpomelo暴露接口给lua调用\<h1\><br />  
@@ -11,19 +12,13 @@ QXPomelo--quick-cocos2d-x的pomelo客户端
 
     
 ### mac  
-  小标题类似html的\<h3\><br />  
-  小标题的格式如下 ### 小标题<br />  
-  注意#和标题字符中间要有空格  
-  
-### 注意!!!下面所有语法的提示我都先用小标题提醒了!!!   
+ todo...<br />  
   
 ### ios  
-    这是一个单行的文本框,只要两个Tab再输入文字即可  
+ todo...<br />  
           
 ### windows    
-    这是一个有多行的文本框  
-    你可以写入代码等,每行文字只要输入两个Tab再输入文字即可  
-    这里你可以输入一段代码  
+ todo...<br />  
   
 ### 比如我们可以在多行文本框里输入一段代码,来一个Java版本的HelloWorld吧  
     public class HelloWorld {  
