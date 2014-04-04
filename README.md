@@ -37,3 +37,5 @@ quick-cocos2d-x的pomelo客户端
 	Psapi.lib<br />
 	ps:此处后面的IPHLPAPI Psapi是libuv的必须依赖项,必须要引入,不然不能通过编译.libpomelo的官方文档上没有提及 我折腾了非常久<br />
   <br />  
+### lua中调用
+参考 LibPomelo.lua<br />
