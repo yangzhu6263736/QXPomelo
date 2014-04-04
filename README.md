@@ -12,9 +12,9 @@ quick-cocos2d-x的pomelo客户端
   打开修改quick工程目录中source/AppDelegate.cpp<br />
   1:添加#include "QXPomelo-luabinding.h"<br />
   2:在bool AppDelegate::applicationDidFinishLaunching()方法中加入<br />
-    CCLuaStack *pStack = pEngine->getLuaStack();
-    lua_State *state = pStack->getLuaState();
-    luaopen_QXPomelo_luabinding(state);
+    CCLuaStack *pStack = pEngine->getLuaStack();<br />
+    lua_State *state = pStack->getLuaState();<br />
+    luaopen_QXPomelo_luabinding(state);<br />
 
 
 ### mac  
