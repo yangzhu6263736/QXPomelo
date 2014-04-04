@@ -1,29 +1,26 @@
-QXPomelo
-========
-
-pomelo client for quick-cocos2d-x lua client for pomelo
-大标题  
+QXPomelo--quick-cocos2d-x的pomelo客户端 
 ===================================  
-  大标题一般显示工程名,类似html的\<h1\><br />  
-  你只要在标题下面跟上=====即可  
+  pomelo client for quick-cocos2d-x lua client for pomelo
+  基于libpomelo暴露接口给lua调用\<h1\><br />  
+  1.基于xdxttt同学的CCPomelo库二次封装而来[CCPomelo](https://github.com/xdxttt/CCPomelo)<br />  ps:因为我用的是很早之前的版本 所以可能存在他修正过的问题我这边还没发现。基本上的处理是装connect放入线程，避免阻塞子主线程。
   
     
-中标题  
+编译方式  
 -----------------------------------  
-  中标题一般显示重点项,类似html的\<h2\><br />  
-  你只要在标题下面输入------即可  
+  目前项目进度还没有到处理安桌的时候所以还没处理 后续补上\<h2\><br />  
+
     
-### 小标题  
+### mac  
   小标题类似html的\<h3\><br />  
   小标题的格式如下 ### 小标题<br />  
   注意#和标题字符中间要有空格  
   
 ### 注意!!!下面所有语法的提示我都先用小标题提醒了!!!   
   
-### 单行文本框  
+### ios  
     这是一个单行的文本框,只要两个Tab再输入文字即可  
           
-### 多行文本框    
+### windows    
     这是一个有多行的文本框  
     你可以写入代码等,每行文字只要输入两个Tab再输入文字即可  
     这里你可以输入一段代码  
