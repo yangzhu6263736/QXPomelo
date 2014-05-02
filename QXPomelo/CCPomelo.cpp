@@ -354,18 +354,62 @@ CCPomelo* CCPomelo::getInstance()
     return s_CCPomelo;
 }
 
-int CCPomelo::connect(const char* addr,int port, CCObject* pTarget, SEL_CallFuncND pSelector){
+int isIPAddr(const char* pStr)
+{
+    int bRet = 1;
+    if (NULL == pStr) return -1;
+    const char* p = pStr;
+    for (; *p != '\0'; p++)
+    {
+        if ((isalpha(*p)) && (*p != '.'))
+        {
+            bRet = 0;
+            break;
+        }
+    }
+    return bRet;
+}
+
+int getIPbyDomain(const char* domain, char* ip)
+{
+    struct hostent *answer;
+    answer = gethostbyname(domain);
+    if (NULL == answer)
+    {
+        herror("gethostbyname");//the error function of itself
+        return -1;
+    }
+    if (answer->h_addr_list[0])
+        inet_ntop(AF_INET, (answer->h_addr_list)[0], ip, 16);
+    else
+        return -1;
+    return 0;
+}
+
+int CCPomelo::connect(const char* host,int port, CCObject* pTarget, SEL_CallFuncND pSelector){
     struct sockaddr_in address;
+    char* ip = new char[40];
+    if (isIPAddr(host)) {
+        strcpy(ip, host);
+    } else {
+        int ret = getIPbyDomain(host, ip);
+        if (ret) {
+            CCLuaLog("域名解析失败");
+            return 0;
+        }
+    }
+    CCLuaLog(ip);
     memset(&address, 0, sizeof(struct sockaddr_in));
     address.sin_family = AF_INET;
     address.sin_port = htons(port);
-    address.sin_addr.s_addr = inet_addr(addr);
+    address.sin_addr.s_addr = inet_addr(ip);
     if (client) {
         client = pc_client_new();
     }else{
         pc_client_destroy(client);
         client = pc_client_new();
     }
+    
     s_CCPomelo->connectContent = new CCPomeloContent_;
     s_CCPomelo->connectContent->pTarget = pTarget;
     s_CCPomelo->connectContent->pSelector = pSelector;
