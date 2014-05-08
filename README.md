@@ -8,13 +8,16 @@ quick-cocos2d-x的pomelo客户端
     
 编译方式  
 -----------------------------------  
-  目前项目进度还没有到处理安桌的时候所以还没处理 后续补上\<h2\><br />
-  打开修改quick工程目录中source/AppDelegate.cpp<br />
-  1:添加#include "QXPomelo-luabinding.h"<br />
-  2:在bool AppDelegate::applicationDidFinishLaunching()方法中加入<br />
-    CCLuaStack *pStack = pEngine->getLuaStack();<br />
-    lua_State *state = pStack->getLuaState();<br />
-    luaopen_QXPomelo_luabinding(state);<br />
+####/lib/luabinding/extensions/cocos-ext.tolua 添加 一行 $pfile "extensions/QXPomelo-luabinding.tolua"
+###执行/lib/luabinding/build.sh
+###在cocos-ext.h 里添加
+###   #include "QXPomelo/QXPomelo.h"
+###   #include "QXPomelo/CCPomelo.h"
+
+###在xcode HEADER_SEARCH_PATH 里添加 "$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/QXPomelo"
+###在XCODE LIBARY_SEARCH_PATH 里添加 "$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/对应平台目录的pomelo-ios
+
+
 
 
 ### mac  
