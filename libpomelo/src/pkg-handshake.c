@@ -1,7 +1,6 @@
 #include <string.h>
 #include "pomelo.h"
 #include "pomelo-protocol/package.h"
-#include "pomelo-private/jansson-memory.h"
 
 extern int pc__binary_write(pc_client_t *client, const char *data, size_t len,
                      uv_write_cb cb);
@@ -66,12 +65,12 @@ int pc__handshake_req(pc_client_t *client) {
     goto error;
   }
 
-  pc_jsonp_free((void *)data);
+  free((void *)data);
   json_decref(body);
 
   return 0;
 error:
-  if(data) pc_jsonp_free((void *)data);
+  if(data) free((void *)data);
   if(body) json_decref(body);
   return -1;
 }
