@@ -18,7 +18,7 @@ public:
     ~QXPomelo(){};
 
     void connect(const char* _addr, unsigned short _port, LUA_FUNCTION listener);
-    void request(const char* route, const char* msg, LUA_FUNCTION listener);
+    LUA_STRING request(const char* route, const char* msg, LUA_FUNCTION listener);
     void notify(const char* route, const char* msg);
     void bindEventHandle(LUA_FUNCTION listener);
     void addListener(const char* event);

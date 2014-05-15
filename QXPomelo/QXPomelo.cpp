@@ -18,12 +18,12 @@ void QXPomelo::connect(const char* _addr, unsigned short _port, LUA_FUNCTION lis
     }
 }
 
-void QXPomelo::request(const char* route, const char* msg, LUA_FUNCTION listener)
+int QXPomelo::request(const char* route, const char* msg, LUA_FUNCTION listener)
 {
 //    const char *route = "connector.connectorHandler.enter";
     json_error_t error;
     json_t *msgJSON = json_loads(msg, 0, &error);
-    ccp_pInstance->request(route, msgJSON, this, listener, callfuncND_selector(QXPomelo::requestCB));
+    return (int)ccp_pInstance->request(route, msgJSON, this, listener, callfuncND_selector(QXPomelo::requestCB));
 }
 
 void QXPomelo::notify(const char* route, const char* msg)

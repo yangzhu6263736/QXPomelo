@@ -445,8 +445,10 @@ int CCPomelo::request(const char*route,json_t *msg,CCObject* pTarget, int luaHan
     content->pSelector = pSelector;
     content->pLuaHandler = luaHandler;
     request_content[req] = content;
-    pc_request(client,req, route, json_deep_copy(msg), cc_pomelo_on_request_cb);
-    return 0;
+
+    int ret = pc_request(client,req, route, json_deep_copy(msg), cc_pomelo_on_request_cb);
+    return ret;
+    // return 0;
 }
 
 int CCPomelo::notify(const char*route,json_t *msg,CCObject* pTarget, SEL_CallFuncND pSelector){
