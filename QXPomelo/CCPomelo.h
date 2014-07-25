@@ -10,6 +10,7 @@
 #include "cocos2d.h"
 #include "jansson.h"
 #include "pomelo.h"
+#include "pthread.h"
 #include<queue>
 #define KCCPomeloConnectStageWait       1//等待连接
 #define KCCPomeloConnectStageDoing      2//连接中
