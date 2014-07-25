@@ -56,7 +56,7 @@ void QXPomelo::connectCB(cocos2d::CCNode *node, void *resp)
     CCPomeloReponse *ccpomeloresp = (CCPomeloReponse*)resp;
     CCLuaValueDict dict;
     dict["status"] = CCLuaValue::intValue(ccpomeloresp->status);
-    dict["request"] = CCLuaValue::ccobjectValue(this, "QPomelo");
+    dict["request"] = CCLuaValue::ccobjectValue(this, "QXPomelo");
     CCLuaStack *stack = CCLuaEngine::defaultEngine()->getLuaStack();
     stack->clean();
     stack->pushCCLuaValueDict(dict);
@@ -71,7 +71,7 @@ void QXPomelo::requestCB(cocos2d::CCNode *node, void *resp)
     int luaHandle = ccpomeloresp->luaHandler;
     if (luaHandle) {
         dict["status"] = CCLuaValue::intValue(ccpomeloresp->status);
-        dict["request"] = CCLuaValue::ccobjectValue(this, "QPomelo");
+        dict["request"] = CCLuaValue::ccobjectValue(this, "QXPomelo");
 //        dict["rout"] = CCLuaValue::stringValue(ccpomeloresp->rout);
         json_t *docs = ccpomeloresp->docs;
         char *json_str = json_dumps(docs, 0);
