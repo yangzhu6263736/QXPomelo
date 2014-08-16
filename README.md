@@ -43,3 +43,5 @@ quick-cocos2d-x的pomelo客户端
   <br />  
 ### lua中调用
 参考 LibPomelo.lua<br />
+<br />
+libpomelo.zip先解压 直接同步不知道为毛git把android.mk搞没了
